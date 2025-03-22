@@ -29,7 +29,7 @@ if "name2" not in st.session_state:
     st.session_state["name2"] = ""
 
 st.set_page_config(
-    page_title="Relationship Toxicity Analyzer",
+    page_title="Personal Relationship Analyzer",
     page_icon="💔",
     layout="wide",
     initial_sidebar_state="auto"
