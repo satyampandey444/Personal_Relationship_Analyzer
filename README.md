@@ -8,16 +8,21 @@ By leveraging this tool, users can gain a deeper understanding of their relation
 ![]()
 
 ## Features
--**Chat Validation**:Ensures the uploaded file is a valid WhatsApp chat export.
--**Overall Relationship Score**:Numeric score between 0 and 100 indicating the overall health of the relationship.
--**Best Relationship Type Prediction**:Identifies the nature of the relationship (e.g., Healthy, Strained, Toxic, Supportive, etc.).
--**Detailed Summary & Suggestions**:Positive Aspects: Describes the good qualities observed in the relationship.
-
-Negative Aspects: Highlights toxic patterns and concerning behaviors.
-
-Improvement Suggestions: Provides actionable advice to improve the relationship.
-
-Overall Summary: A brief evaluation of the relationship’s strengths and weaknesses.
+- **Chat Validation**: Ensures the uploaded file is a valid WhatsApp chat export.
+- **Overall Relationship Score**: Numeric score between 0 and 100 indicating the overall health of the relationship.
+  - **Toxicity Score**
+  - **Affection Score**
+  - **Concern Score**
+  - **Work Experience Score**
+  - **Manipulation Score**
+  - **Abusive Nature Score**
+- **Best Relationship Type Prediction**: dentifies the nature of the relationship (e.g., Healthy, Strained, Toxic, Supportive, etc.).
+- **Detailed Summary & Suggestions:**: Provides an insightful overview and practical improvement tips.
+    - **Positive Aspects**
+  - **Negative Aspects**
+  - **Concern Score**
+  - **Improvement Suggestions**
+  - **Overall Summary**
 
 
 
