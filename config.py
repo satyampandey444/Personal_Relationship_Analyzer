@@ -75,15 +75,15 @@ STYLES = """
 STYLE_SUBMIT_BUTTON = """
 <style>
 div.stFormSubmitButton > button {
-    border: 2px solid #ff4d4d; /* Change to a red color for toxicity theme */
+    border: 2px solid #008000; /* Change to a green color for toxicity theme */
     border-radius: 4px;
-    color: #ff4d4d; /* Change to a red color for toxicity theme */
+    color: ##008000; /* Change to a green color for toxicity theme */
     padding: 0.5rem 1rem; /* Padding for buttons */
     font-weight: bold; /* Bold text for buttons */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 div.stFormSubmitButton > button:hover {
-    background-color: #ff4d4d; /* Change to a red color for hover */
+    background-color: #008000; /* Change to a green color for hover */
     color: white; /* White text on hover */
 }
 </style>
@@ -91,6 +91,6 @@ div.stFormSubmitButton > button:hover {
 
 FOOTER_STYLE = """
 <div style='text-align: center; color: #888888; font-size: 12px; margin-top: 20px;'>
-    &copy; 2025 Relationship Toxicity Analyzer. Built by Satyam Pandey. All rights reserved.
+    &copy; 2025 Personal Relationship Analyzer. Built by Satyam Pandey. All rights reserved.
 </div>
 """
