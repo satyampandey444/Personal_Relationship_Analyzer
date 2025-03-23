@@ -1,4 +1,4 @@
-# Personal_Relationship_Analyzer
+# Personal Relationship (WhatsApp Chats) Analyzer 
 
 The Personal Relationship Analyzer is an intelligent tool designed to assess and enhance relationships. It assigns a relationship score based on various emotional, behavioral, and communication factors. The system provides significant improvement suggestions, helping individuals identify key areas that need attention and growth. Additionally, it generates a comprehensive summary, offering valuable insights into the overall health of the relationship.
 
