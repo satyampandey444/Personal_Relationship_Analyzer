@@ -5,7 +5,7 @@ The Personal Relationship Analyzer is an intelligent tool designed to assess and
 By leveraging this tool, users can gain a deeper understanding of their relationships, recognize strengths and weaknesses, and take actionable steps to foster stronger, more meaningful connections. Whether for personal reflection or relationship growth, this analyzer serves as a helpful guide in building healthier and more fulfilling bonds.
 
 
-![]()
+![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWZteTFwYXF5cHRtOW4zcnVzdGRvcmtnNDF0ZGI2amJ3OWxsNzZpOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6RwS1c3u6cVrs2d4n6/giphy.gif)
 
 ## Features
 - **Chat Validation**: Ensures the uploaded file is a valid WhatsApp chat export.
