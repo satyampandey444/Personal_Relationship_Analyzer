@@ -7,7 +7,7 @@ from utils import (
     analyze_chat_toxicity,
 )
 from config import STYLES, FOOTER_STYLE, STYLE_SUBMIT_BUTTON
-from utils import colored_metric
+from utils import colored_metric, colored_metric_positive,validate_chat
 
 # Initialize session state variables
 if "valid" not in st.session_state:
@@ -42,7 +42,7 @@ st.title("Personal Relationship Analyzer")
 st.markdown("### Analyze your WhatsApp chats for Healthier Relationship using Artificial Intelligence")
 st.markdown("### Explore the status of your relationship ☠️")
 st.markdown(
-    """##### Built by <a href="https://www.linkedin.com/in/satyam-pandey-66449b230/" target="_blank">Satyam Pandey</a> #####""",
+    """##### Built by <a href="https://www.linkedin.com/in/satyam-pandey-66449b230/" target="_blank">Satyam Pandey</a> &amp; <a href="https://www.linkedin.com/in/drpandit69/" target="_blank">Subrahmanyam</a> #####""",
     unsafe_allow_html=True
 )
 st.markdown("---")
@@ -60,7 +60,16 @@ def check_data():
     chat_text = extract_text_from_chat(st.session_state['file'])
     clean_text_val = clean_text(chat_text)
 
-    # Analyze the chat for toxicity
+    # Validate the chat text
+    is_valid, comments = validate_chat(clean_text_val)
+
+    if not is_valid:
+        st.session_state['comments'] = comments
+        st.session_state['valid'] = False
+        # st.error(comments)  # Display the error message to the user
+        return  # Exit the function if the chat is not valid
+
+    # Analyze the chat for toxicity if valid
     analysis_result = analyze_chat_toxicity(clean_text_val)
     
     st.session_state["analysis_result"] = analysis_result
@@ -85,8 +94,18 @@ if st.session_state["valid"] and not st.session_state["done"]:
 
         if uploaded_file is not None:
             st.success("File uploaded successfully! Click 'Analyze Chat' to proceed.")
-        
-        analyze_button = st.form_submit_button("🔍 Analyze Chat", on_click=check_data)
+        col_left, col_right = st.columns([7, 1])
+        with col_right:
+            analyze_button = st.form_submit_button("🔍 Analyze Chat", on_click=check_data)
+elif((st.session_state["valid"])==False):
+
+    x.empty()
+    comments=st.session_state["comments"]
+    st.write("# 🚫 Invalid Whatsapp Chats")
+    st.error(f'{comments} Please upload a valid chats to proceed.')
+    button = st.button("Back to main page",on_click=back_to_main)
+                       
+
 
 # Results Section
 elif st.session_state["valid"] and st.session_state["done"]:
@@ -96,7 +115,7 @@ elif st.session_state["valid"] and st.session_state["done"]:
     name2 = analysis.get("person2_name", st.session_state["name2"])
 
     st.markdown("## Chat Analysis Dashboard")
-    st.markdown("### Toxicity and Relationship Scores")
+    st.markdown("### Personal and Overall Relationship Analysis")
 
     # Retrieve scores for person 1
     toxicity_percentage_person1 = analysis.get("toxicity_percentage_person1", "N/A")
@@ -119,8 +138,8 @@ elif st.session_state["valid"] and st.session_state["done"]:
     with col1:
         st.markdown(f"### {name1} Scores")
         st.markdown(colored_metric(f"{name1} Toxicity Percentage", toxicity_percentage_person1), unsafe_allow_html=True)
-        st.markdown(colored_metric(f"{name1} Affection Percentage", affection_score_person1), unsafe_allow_html=True)
-        st.markdown(colored_metric(f"{name1} Concern Percentage", concern_score_person1), unsafe_allow_html=True)
+        st.markdown(colored_metric_positive(f"{name1} Affection Percentage", affection_score_person1), unsafe_allow_html=True)
+        st.markdown(colored_metric_positive(f"{name1} Concern Percentage", concern_score_person1), unsafe_allow_html=True)
         st.markdown(colored_metric(f"{name1} Manipulation Percentage", manipulation_score_person1), unsafe_allow_html=True)
         st.markdown(colored_metric(f"{name1} Abusive Nature Percentage", abusive_nature_score_person1), unsafe_allow_html=True)
         
@@ -135,8 +154,8 @@ elif st.session_state["valid"] and st.session_state["done"]:
     with col2:
         st.markdown(f"### {name2} Scores")
         st.markdown(colored_metric(f"{name2} Toxicity Percentage", toxicity_percentage_person2), unsafe_allow_html=True)
-        st.markdown(colored_metric(f"{name2} Affection Percentage", affection_score_person2), unsafe_allow_html=True)
-        st.markdown(colored_metric(f"{name2} Concern Percentage", concern_score_person2), unsafe_allow_html=True)
+        st.markdown(colored_metric_positive(f"{name2} Affection Percentage", affection_score_person2), unsafe_allow_html=True)
+        st.markdown(colored_metric_positive(f"{name2} Concern Percentage", concern_score_person2), unsafe_allow_html=True)
         st.markdown(colored_metric(f"{name2} Manipulation Percentage", manipulation_score_person2), unsafe_allow_html=True)
         st.markdown(colored_metric(f"{name2} Abusive Nature Percentage", abusive_nature_score_person2), unsafe_allow_html=True)
         
@@ -156,3 +175,6 @@ elif st.session_state["valid"] and st.session_state["done"]:
         col_space, col_buttons = st.columns([8, 2])
         with col_buttons:
             st.button("Try another chat", on_click=back_to_main)
+
+st.markdown("---")
+st.markdown(FOOTER_STYLE, unsafe_allow_html=True)
