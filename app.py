@@ -42,7 +42,7 @@ st.title("Personal Relationship Analyzer")
 st.markdown("### Analyze your WhatsApp chats for Healthier Relationship using Artificial Intelligence")
 st.markdown("### Explore the status of your relationship ☠️")
 st.markdown(
-    """##### Built by <a href="https://www.linkedin.com/in/satyam-pandey-66449b230/" target="_blank">Satyam Pandey</a> &amp; <a href="https://www.linkedin.com/in/drpandit69/" target="_blank">Subrahmanyam</a> #####""",
+    """##### Built by <a href="https://www.linkedin.com/in/satyam-pandey-66449b230/" target="_blank">Satyam Pandey</a> #####""",
     unsafe_allow_html=True
 )
 st.markdown("---")
